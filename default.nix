@@ -16,10 +16,9 @@ llvmPackages_18.stdenv.mkDerivation {
   buildInputs = deps.kimeBuildInputs;
   nativeBuildInputs = deps.kimeNativeBuildInputs ++ [ rustToolchain rustPlatform.cargoSetupHook ];
   version = kimeVersion;
-  cargoDeps = rustPlatform.fetchCargoTarball {
+  cargoDeps = rustPlatform.fetchCargoVendor {
     inherit src;
-    #hash = "0000000000000000000000000000000000000000000000000000";
-    hash = "sha256-2MG6xigiKdvQX8PR457d6AXswTRPRJBPERvZqemjv24=";
+    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
   };
   LIBCLANG_PATH = "${llvmPackages_18.libclang.lib}/lib";
   dontUseCmakeConfigure = true;

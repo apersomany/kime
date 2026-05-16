@@ -38,5 +38,8 @@ llvmPackages_18.stdenv.mkDerivation {
   checkPhase = ''
     cargo test ${testArgs}
   '';
+  postFixup = ''
+    patchelf --add-rpath ${pkgs.wayland}/lib $out/bin/kime-wayland
+  '';
 }
 
